@@ -10,12 +10,29 @@ buttons.forEach(function (button) {
 
 function dissAppear(stays) {
 	items.forEach(function (item) {
-		console.log(item);
 		if (!item.classList.contains(stays)) {
-			item.style.display = "none";
+			fadeOut(item);
 		}
-		if (item.classList.contains(stays)) {
-			item.style.display = "flex";
+		if (item.classList.contains(stays) && item.classList.contains("hidden")) {
+			fadeIn(item);
 		}
 	});
+}
+
+function fadeOut(item) {
+	item.classList.add("hidden");
+	setTimeout(function () {
+		item.style.display = "none";
+	}, 800);
+	item.style.transform = "scale(0)";
+	item.style.opacity = "0";
+}
+
+function fadeIn(item) {
+	item.classList.remove("hidden");
+	setTimeout(function () {
+		item.style.display = "flex";
+	}, 0);
+	item.style.transform = "scale(1)";
+	item.style.opacity = "100";
 }
