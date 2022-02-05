@@ -14,5 +14,8 @@ function dissAppear(stays) {
 		if (!item.classList.contains(stays)) {
 			item.style.display = "none";
 		}
+		if (item.classList.contains(stays)) {
+			item.style.display = "flex";
+		}
 	});
 }
