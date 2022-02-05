@@ -16,6 +16,7 @@
             height: 90vh;
             font-family: 'Open Sans', sans-serif;
             font-weight: 800;
+            flex-direction: column;
         }
 
         .sorterz-container {
@@ -47,12 +48,40 @@
         .orange {
             background-color: #FF9000;
         }
+
+        .sorterz-container {
+            background-color: #424242;
+        }
+
+        .project-btn {
+            background-color: #424242;
+            border: 0px;
+            width: 150px;
+            height: 50px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .project-btn.active {
+            background-color: #FF9000;
+            color: #000;
+        }
     </style>
 </head>
 
 <body>
 
     <div class="main">
+
+        <div class="filter-button-group">
+
+            <button class="project-btn active button is-checked" data-filter="*">all</button>
+            <button class="project-btn" data-filter=".html">red</button>
+            <button class="project-btn" data-filter=".css">orange</button>
+            <button class="project-btn" data-filter=".php">blue</button>
+        </div>
         <div class="sorterz-container">
             <div class="sorterz-item blue">1</div>
             <div class="sorterz-item blue">2</div>
