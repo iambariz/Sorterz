@@ -9,14 +9,22 @@ buttons.forEach(function (button) {
 });
 
 function dissAppear(stays) {
-	items.forEach(function (item) {
-		if (!item.classList.contains(stays)) {
-			fadeOut(item);
-		}
-		if (item.classList.contains(stays) && item.classList.contains("hidden")) {
-			fadeIn(item);
-		}
-	});
+	if (stays == "all") {
+		items.forEach(function (item) {
+			if (item.classList.contains("hidden")) {
+				fadeIn(item);
+			}
+		});
+	} else {
+		items.forEach(function (item) {
+			if (!item.classList.contains(stays)) {
+				fadeOut(item);
+			}
+			if (item.classList.contains(stays) && item.classList.contains("hidden")) {
+				fadeIn(item);
+			}
+		});
+	}
 }
 
 function fadeOut(item) {
