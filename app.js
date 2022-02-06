@@ -38,9 +38,9 @@ function fadeOut(item) {
 
 function fadeIn(item) {
 	item.classList.remove("hidden");
+	item.style.display = "flex";
 	setTimeout(function () {
-		item.style.display = "flex";
+		item.style.transform = "scale(1)";
+		item.style.opacity = "100";
 	}, 0);
-	item.style.transform = "scale(1)";
-	item.style.opacity = "100";
 }
