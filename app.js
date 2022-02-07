@@ -3,13 +3,13 @@ const buttons = document.querySelectorAll(".project-btn");
 const items = document.querySelectorAll(".sorterz-item");
 
 let running = false;
-let lastActive = 0;
+let lastActive = buttons[0];
 let curActive = undefined;
 
 buttons.forEach(function (button) {
-	button.addEventListener("click", function () {
+	button.addEventListener("click", function (e) {
 		if (running == false) {
-			console.log("in");
+			curActive = e.target;
 			dissAppear(this.dataset.id);
 		}
 	});
@@ -37,7 +37,7 @@ function dissAppear(stays) {
 function fadeOut(item) {
 	item.classList.add("hidden");
 	running = true;
-	changeClassList(add, buttons[0]);
+	changeClassList();
 	setTimeout(function () {
 		item.style.display = "none";
 		running = false;
@@ -56,6 +56,11 @@ function fadeIn(item) {
 }
 
 function changeClassList() {
-	curActive.classList.add("active");
-	lastActive.classList.remove("active");
+	if (lastActive != curActive) {
+		curActive.classList.add("active");
+		setTimeout(function () {
+			lastActive = curActive;
+		}, 100);
+		lastActive.classList.remove("active");
+	}
 }
