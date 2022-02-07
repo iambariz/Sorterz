@@ -21,6 +21,7 @@ function dissAppear(stays) {
 			if (item.classList.contains("hidden")) {
 				fadeIn(item);
 			}
+			changeClassList();
 		});
 	} else {
 		items.forEach(function (item) {
@@ -58,9 +59,9 @@ function fadeIn(item) {
 function changeClassList() {
 	if (lastActive != curActive) {
 		curActive.classList.add("active");
+		lastActive.classList.remove("active");
 		setTimeout(function () {
 			lastActive = curActive;
 		}, 100);
-		lastActive.classList.remove("active");
 	}
 }
